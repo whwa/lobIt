@@ -13,4 +13,21 @@ const readData = () => {
   })
 }
 
+const createSenderObj = (lines) => {
+  lines = lines.map((line) => {
+    return line.slice(line.indexOf(':') + 2)
+  })
+  var senderInfo = {
+    fromName: lines[0],
+    addressLine1: lines[1],
+    addressLine2: lines[2],
+    city: lines[3],
+    state: lines[4],
+    country: lines[5],
+    zip: lines[6],
+    message: lines[7]
+  }
+  getGovernerInfo(senderInfo)
+}
+
 readData()
